@@ -90,7 +90,6 @@ default_month_from_period(gint period)
  */
 /* One strongly typed native C++20 chronology descriptor. */
 static const CustomCalendarProvider local_provider = {
-    [CALENDAR_CALENDAR_MODE_REVISED_JULIAN] = {
         calendar_revised_julian_fields_from_jdn,
         calendar_revised_julian_fields_to_jdn,
         calendar_revised_julian_month_length,
@@ -100,7 +99,7 @@ static const CustomCalendarProvider local_provider = {
 };
 static const CustomCalendarProvider *custom_provider(CalendarMode mode)
 {
-    return mode == CALENDAR_CALENDAR_MODE_COUNT ? &local_provider : nullptr;
+    return mode == CALENDAR_CALENDAR_MODE_REVISED_JULIAN ? &local_provider : nullptr;
 }
 
 void

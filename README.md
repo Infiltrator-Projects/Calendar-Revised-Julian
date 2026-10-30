@@ -1,5 +1,7 @@
 # Revised Julian Calendar
 
+**Implementation:** Native C++20 resource provider with C chronology algorithms, native C++ embedded translations and Python-free build/release tooling. Installs only .so and illustrated PDF.
+
 **InfiltratorOS calendar resource** · **Stable ID:** `revised-julian` · **Module:** `Revised Julian Calendar.so`
 
 Milanković 1923 leap rule continued arithmetically, anchored where it coincides with Gregorian on 1 January 2000.

@@ -88,7 +88,8 @@ default_month_from_period(gint period)
  * Sparse, mode-indexed provider registry.  Empty slots correspond to ICU
  * calendars and are intentionally rejected by custom_provider().
  */
-static const CustomCalendarProvider custom_providers[CALENDAR_CALENDAR_MODE_COUNT] = {
+/* One strongly typed native C++20 chronology descriptor. */
+static const CustomCalendarProvider local_provider = {
     [CALENDAR_CALENDAR_MODE_REVISED_JULIAN] = {
         calendar_revised_julian_fields_from_jdn,
         calendar_revised_julian_fields_to_jdn,
@@ -96,20 +97,10 @@ static const CustomCalendarProvider custom_providers[CALENDAR_CALENDAR_MODE_COUN
         calendar_revised_julian_format,
         default_period_index, default_month_from_period,
         12, 0, 0, 1, FALSE
-    },
 };
-
-static const CustomCalendarProvider *
-custom_provider(CalendarMode mode)
+static const CustomCalendarProvider *custom_provider(CalendarMode mode)
 {
-    (void)mode;
-    const CustomCalendarProvider *provider;
-
-    if (mode < 0 || mode >= CALENDAR_CALENDAR_MODE_COUNT)
-        return NULL;
-
-    provider = &custom_providers[mode];
-    return provider->fields_from_jdn != NULL ? provider : NULL;
+    return mode == CALENDAR_CALENDAR_MODE_COUNT ? &local_provider : nullptr;
 }
 
 void
@@ -121,7 +112,7 @@ calendar_custom_fields_from_jdn(CalendarMode mode,
     const CustomCalendarProvider *provider = custom_provider(mode);
 
     g_return_if_fail(fields != NULL);
-    *fields = (CalendarFields){0};
+    *fields = CalendarFields{};
 
     if (provider != NULL)
         provider->fields_from_jdn(jdn, fields);

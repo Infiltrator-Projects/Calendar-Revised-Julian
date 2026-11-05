@@ -52,4 +52,4 @@ Translations use the provider-owned gettext domain `infiltrator-calendar-revised
 
 ## Illustrated user guide
 
-The installed provider consists of exactly `Revised Julian Calendar.so` and `Revised Julian Calendar.pdf`. Provider translations are embedded in the .so; auditing and PGO/LTO records are kept in source control and Debian control metadata.
+The installed provider consists of exactly `Revised Julian Calendar.so` and `Calendar-Revised-Julian.pdf`. Provider translations are embedded in the .so; auditing and PGO/LTO records are kept in source control and Debian control metadata.

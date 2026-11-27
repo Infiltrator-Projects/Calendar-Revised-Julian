@@ -1,35 +1,13 @@
 {
   "title": "Revised Julian Calendar",
-  "intro": "A modern refinement of the Julian leap-year rule, proposed by Milutin Milanković in 1923, that stays very close to the Gregorian calendar for many centuries.",
-  "summary": "Twelve familiar months. Century years are leap years only for two remainders in a repeating 900-year cycle.",
-  "origin": "The Revised Julian calendar was devised in 1923 for Orthodox calendar reform. Different churches and communities have adopted different calendars for different purposes.",
-  "ring_label": "900",
-  "ring_caption": "YEAR CYCLE",
-  "diagram_title": "HOW THE LEAP RULE WORKS",
-  "structure": "Ordinary years follow the four-year leap rhythm, except that century years are leap only when their remainder upon division by 900 is 200 or 600.",
-  "diagram_caption": "LEAP YEAR RULES / A 900-YEAR CYCLE",
-  "sections": [
-    {
-      "name": "Not divisible by 4",
-      "days": "common"
-    },
-    {
-      "name": "Divisible by 4",
-      "days": "leap"
-    },
-    {
-      "name": "Century years",
-      "days": "special"
-    },
-    {
-      "name": "900 remainder 200/600",
-      "days": "leap",
-      "special": true
-    }
-  ],
-  "pattern_note": "Century years outside the two approved 900-year remainders are not leap years, even when divisible by four.",
-  "history": "The Revised Julian system sought a very accurate solar calendar without retaining the original Julian calendar's accumulated seasonal drift. Its use in churches is not universal.",
-  "example": "Year 2000 is leap in this rule, but year 2800 is not; Gregorian 2800 is a leap year. The systems thus eventually diverge.",
-  "limits": "Dates before formal twentieth-century adoption are mathematical back-projections. Church observance and Paschal (Easter) calculations can involve separate rules.",
-  "source": "https://github.com/Infiltrator-Projects/Calendar-Revised-Julian"
+  "intro": "The Revised Julian calendar refines the original Julian leap cycle to reduce long-term seasonal drift.",
+  "structure": "A year not divisible by four is common. A non-century year divisible by four is leap. A century year is leap only if its remainder modulo 900 is 200 or 600.",
+  "model": "The provider implements Milankovic's 1923 leap rule arithmetically with its day-coordinate anchor at 1 January 2000, when it coincides with the Gregorian calendar. There are 218 leap years in 900 years.",
+  "example": "2000 and 2400 are leap years under both calendars. Revised Julian 2800 is common, whereas Gregorian 2800 is leap; their dates diverge after the leap-day boundary.",
+  "history": "The Revised Julian rule was proposed in 1923 for Orthodox calendar reform. Churches and communities differ in adoption and use.",
+  "limits": "Dates before adoption are mathematical back-projections. Ecclesiastical observance and Paschal (Easter) calculations can employ separate rules.",
+  "sources": [
+    "https://github.com/Infiltrator-Projects/Calendar-Revised-Julian",
+    "Model evidence: https://github.com/Infiltrator-Projects/Calendar-Revised-Julian/blob/main/docs/MODEL.md"
+  ]
 }
